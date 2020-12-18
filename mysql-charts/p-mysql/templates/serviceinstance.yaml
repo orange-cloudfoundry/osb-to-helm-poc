@@ -1,0 +1,14 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: {{ include "p-mysql.fullname" . }}
+  labels:
+    {{- include "p-mysql.labels" . | nindent 4 }}
+spec:
+  # TODO: use lookup function to lookup ClusterServiceClass by service offering name
+  # https://helm.sh/docs/chart_template_guide/functions_and_pipelines/#using-the-lookup-function
+  clusterServiceClassName: 22450290-aa7f-4349-9100-92803ce9b3b3
+  # TODO: use lookup function to lookup ClusterServicePlan  by service plan name
+  clusterServicePlanName: e1642275-3038-40de-99c1-e4aeb2dcb619
+  parameters: {}
+
