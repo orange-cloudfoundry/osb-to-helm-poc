@@ -1,0 +1,128 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  annotations:
+    meta.helm.sh/release-name: p-mysql-1-1608287791
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: '2020-12-18T10:36:33Z'
+  finalizers:
+    - kubernetes-incubator/service-catalog
+  generation: 2
+  labels:
+    app.kubernetes.io/instance: p-mysql-1-1608287791
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: p-mysql
+    app.kubernetes.io/version: 49.0.1-5b05edc2-bcf1-4b60-9455-efd0401d1b7f
+    helm.sh/chart: p-mysql-1.0.0
+    servicecatalog.k8s.io/spec.clusterServiceClassRef.name: e1e3d3712e7517a983a0c447661c5b3247ae417eb9ebe0feb5ed390e
+    servicecatalog.k8s.io/spec.clusterServicePlanRef.name: 0d52403a481f45670feb3ecbd07fc4ac748135d5a491df00421ecb5d
+  managedFields:
+    - apiVersion: servicecatalog.k8s.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/version': {}
+            'f:helm.sh/chart': {}
+        'f:spec':
+          .: {}
+          'f:clusterServiceClassName': {}
+          'f:clusterServicePlanName': {}
+          'f:parameters': {}
+      manager: Go-http-client
+      operation: Update
+      time: '2020-12-18T10:36:33Z'
+    - apiVersion: servicecatalog.k8s.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:clusterServiceClassRef':
+            .: {}
+            'f:name': {}
+          'f:clusterServicePlanRef':
+            .: {}
+            'f:name': {}
+        'f:status':
+          .: {}
+          'f:asyncOpInProgress': {}
+          'f:conditions': {}
+          'f:dashboardURL': {}
+          'f:deprovisionStatus': {}
+          'f:externalProperties':
+            .: {}
+            'f:clusterServicePlanExternalID': {}
+            'f:clusterServicePlanExternalName': {}
+            'f:userInfo':
+              .: {}
+              'f:groups': {}
+              'f:uid': {}
+              'f:username': {}
+          'f:lastConditionState': {}
+          'f:observedGeneration': {}
+          'f:orphanMitigationInProgress': {}
+          'f:provisionStatus': {}
+          'f:reconciledGeneration': {}
+          'f:userSpecifiedClassName': {}
+          'f:userSpecifiedPlanName': {}
+      manager: service-catalog
+      operation: Update
+      time: '2020-12-18T10:36:35Z'
+  name: p-mysql-1-1608287791
+  namespace: default
+  resourceVersion: '21863748'
+  selfLink: >-
+    /apis/servicecatalog.k8s.io/v1beta1/namespaces/default/serviceinstances/p-mysql-1-1608287791
+  uid: afcab8b8-ac5f-4fa2-b0a9-bcf16ad5e634
+spec:
+  clusterServiceClassName: 22450290-aa7f-4349-9100-92803ce9b3b3
+  clusterServiceClassRef:
+    name: 22450290-aa7f-4349-9100-92803ce9b3b3
+  clusterServicePlanName: e1642275-3038-40de-99c1-e4aeb2dcb619
+  clusterServicePlanRef:
+    name: e1642275-3038-40de-99c1-e4aeb2dcb619
+  externalID: ca1bc6ef-0028-475a-8782-eba8cee3d94e
+  parameters: {}
+  updateRequests: 0
+  userInfo:
+    groups:
+      - 'system:serviceaccounts'
+      - 'system:serviceaccounts:catalog'
+      - 'system:authenticated'
+    uid: a0413ef7-1ab4-47ea-bfa8-83bb6ef68e1c
+    username: 'system:serviceaccount:catalog:service-catalog-controller-manager'
+status:
+  asyncOpInProgress: false
+  conditions:
+    - lastTransitionTime: '2020-12-18T10:36:35Z'
+      message: The instance was provisioned successfully
+      reason: ProvisionedSuccessfully
+      status: 'True'
+      type: Ready
+  dashboardURL: >-
+    https://p-mysql.redacted-domain.org/manage/instances/4cea8e02-bdf5-4efc-9e7c-ebfa8d5f78ac
+  deprovisionStatus: Required
+  externalProperties:
+    clusterServicePlanExternalID: e1642275-3038-40de-99c1-e4aeb2dcb619
+    clusterServicePlanExternalName: 10mb
+    userInfo:
+      groups:
+        - 'system:serviceaccounts'
+        - 'system:serviceaccounts:catalog'
+        - 'system:authenticated'
+      uid: a0413ef7-1ab4-47ea-bfa8-83bb6ef68e1c
+      username: 'system:serviceaccount:catalog:service-catalog-controller-manager'
+  lastConditionState: Ready
+  observedGeneration: 2
+  orphanMitigationInProgress: false
+  provisionStatus: Provisioned
+  reconciledGeneration: 2
+  userSpecifiedClassName: ClusterServiceClass/22450290-aa7f-4349-9100-92803ce9b3b3
+  userSpecifiedPlanName: e1642275-3038-40de-99c1-e4aeb2dcb619
