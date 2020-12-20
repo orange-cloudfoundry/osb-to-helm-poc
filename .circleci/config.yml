@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   #See documentation at https://circleci.com/developer/orbs/orb/banzaicloud/helm
+  # This is a 3rd party circle ci orb (aka a plugin) that required the circle ci admin to opt-in in the security settings
   helm: banzaicloud/helm@0.0.8
 workflows:
   helm-chart-lint:
