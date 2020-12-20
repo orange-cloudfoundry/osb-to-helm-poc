@@ -1,5 +1,6 @@
 package main
 
-assert ["values object should have multiple file values"] {
-  100mb == input["values"]["servicePlanName"]
+assert ["servicePlanName should be defined"] {
+  "100mb" == input["values"]["servicePlanName"]
 }
+
