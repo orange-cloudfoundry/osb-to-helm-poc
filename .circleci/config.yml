@@ -1,0 +1,21 @@
+version: 2.1
+orbs:
+  #See documentation at https://circleci.com/developer/orbs/orb/banzaicloud/helm
+  helm: banzaicloud/helm@0.0.8
+workflows:
+  helm-chart-lint:
+    jobs:
+      - helm/lint-chart:
+          charts-dir: charts
+          filters:
+            tags:
+              ignore: /.*/
+      - tests
+jobs:
+  tests:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /
+    steps:
+      - checkout
+      - run: ./test.bash

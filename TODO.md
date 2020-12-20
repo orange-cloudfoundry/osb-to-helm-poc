@@ -1,5 +1,7 @@
 * [ ] Set up circle ci
   * [ ] Look for inspiration in community helm charts
+  * [ ] Look for circlei helm related projects
+    * https://circleci.com/developer/orbs/orb/banzaicloud/helm
   * [ ] install helm automatically
   * [ ] install helm hcunit_plugin automatically,
     see https://github.com/xchapter7x/hcunit/issues/27#issuecomment-748142886
@@ -95,8 +97,9 @@
       * [ ] Try as an unused chart/template/README.md.yml
           * [ ] Q: how to render it ?
               * [ ] Using `helm template` https://helm.sh/docs/helm/helm_template/
-      * [ ] Investigate further use of `helm-docs` which generates README.md from chart/values.yml
-         * https://github.com/norwoodj/helm-docs
+      * [ ] Investigate further use of helm chart generators that generates README.md from chart/values.yml
+         * [ ] https://github.com/kubepack/chart-doc-gen
+         * [ ] https://github.com/norwoodj/helm-docs
          * [ ] frigate (from python community), see https://medium.com/rapids-ai/introducing-frigate-a-documentation-generation-tool-for-kubernetes-1791854031a1
       * Plain go templates https://godoc.org/text/template
     * [ ] short description
