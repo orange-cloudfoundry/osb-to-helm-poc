@@ -7,16 +7,31 @@ workflows:
   helm-chart-lint:
     jobs:
       - helm/lint-chart:
-          charts-dir: charts
+          charts-dir: mysql-charts/p-mysql
           filters:
             tags:
               ignore: /.*/
-      - tests
+      - unit-tests
 jobs:
-  tests:
+  unit-tests:
     docker:
-      - image: circleci/golang:latest
-    working_directory: /
+    # From https://circleci.com/developer/orbs/orb/banzaicloud/helm
+      - image: ghcr.io/banzaicloud/helm:0.0.8
+    working_directory: ~/osb-2-helm-poc
     steps:
       - checkout
-      - run: ./test.bash
+      - run:
+          name: Run helm chart unit tests
+          command: |
+            #helm plugin install https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
+            curl -LO https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
+            # env | sort
+            #Try to find out where $HELM_HOME is
+            # find / -name "helm-push*"
+            # pwd
+            # ls -al /.helm/helm/plugins/
+            mkdir /.helm/helm/plugins/hcunit_plugin
+            tar xvfz hcunit_plugin.tgz --directory=/.helm/helm/plugins/hcunit_plugin
+            # ls -alRt /.helm/helm/plugins/
+            cd mysql-charts;./test.bash
+
