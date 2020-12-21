@@ -3,11 +3,16 @@
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
         * [ ] lookup ClusterServiceClass by service offering name
+            * Find a way to add debugging/logging facility
+               * [x] as an unsupported spec field: gets ignored
+               * [x] as an annotation: persisted but restricted in size
+               * [x] as an OSB custom param
             * [ ] define a debugging variable
             * [ ] render the variable inside the spec
             * [ ] use lookup function
                 * [ ] inject mock of lookup response for unit tests
             * [ ] error if prereqs are not met with user friendly message
+               * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
         * [ ] lookup ClusterServicePlan by service plan name
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli

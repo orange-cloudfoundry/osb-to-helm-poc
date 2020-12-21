@@ -14,3 +14,10 @@ expect ["empty service instance params by default"] {
   # Learn more at https://www.openpolicyagent.org/docs/latest/policy-language/#composite-values
   spec.parameters == {}
 }
+expect ["service instance params contain debugging field"] {
+  spec := input["serviceinstance.yaml"].spec
+  # {} is an empty composite value, i.e. an empty array
+  # Learn more at https://www.openpolicyagent.org/docs/latest/policy-language/#composite-values
+  spec.parameters.debuggingField != {}
+  spec.parameters.debuggingField.akey == "a value"
+}
