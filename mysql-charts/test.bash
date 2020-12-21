@@ -12,9 +12,10 @@ for TEST_SUITE in $TEST_SUITES; do
   for VALUE_FILE in $VALUES; do
     VALUES_ARG="${VALUES_ARG} -c ${VALUE_FILE}"
   done
-  POLICIES=( $TEST_SUITE/policy/* )
+  POLICIES=( $TEST_SUITE/policy/*.rego )
+  printf "\n----------------\nTest suite $TEST_SUITE with user inputs: $VALUES\n"
   for POLICY in $POLICIES; do
-  printf "\nChecking test $POLICY with user inputs: $VALUES\n"
+  printf "\nChecking test $POLICY\n"
 #    set -x
     helm unit eval -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY}
 #    set +x

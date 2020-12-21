@@ -1,0 +1,1 @@
+This is a copy of the hcunit test cases to illustrate the test framework syntax
