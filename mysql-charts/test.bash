@@ -17,7 +17,7 @@ for TEST_SUITE in $TEST_SUITES; do
   for POLICY in $POLICIES; do
   printf "\nChecking test $POLICY\n"
 #    set -x
-    helm unit eval -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY}
+    helm unit eval -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY} || printf "\nReproduce locally with cmd:\n cd $PWD; helm unit eval -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY}"
 #    set +x
   done;
 done
