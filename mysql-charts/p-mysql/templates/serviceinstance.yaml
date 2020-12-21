@@ -30,7 +30,7 @@ spec:
     # This is designed as a poor man tracing facility inside helm chart template without size restrictions
     debuggingField:
       akey: "a value"
-      mocked_serviceClasses: {{ .Values.mocked_serviceClasses }}
+      mockedServiceClasses: {{ .Values.mockedServiceClasses }}
 
 
 {{/*  externalServiceClassName: {{ .Values.servicePlanName }}*/}}

@@ -20,6 +20,7 @@ expect ["service instance params contain debugging field"] {
   # Learn more at https://www.openpolicyagent.org/docs/latest/policy-language/#composite-values
   spec.parameters.debuggingField != {}
   spec.parameters.debuggingField.akey == "a value"
+  spec.parameters.debuggingField.mockedServiceClasses.aMockedKey == "aMockedValue"
 }
 
 expect ["service class external name contains default value"] {
@@ -34,6 +35,6 @@ expect ["service plan external name contains default value"] {
   spec := input["serviceinstance.yaml"].spec
   # {} is an empty composite value, i.e. an empty array
   # Learn more at https://www.openpolicyagent.org/docs/latest/policy-language/#composite-values
-  spec.clusterServiceClassExternalName == "10mb"
-  spec.clusterServiceClassExternalName == input["values"].servicePlanName
+  spec.clusterServicePlanExternalName == "10mb"
+  spec.clusterServicePlanExternalName == input["values"].servicePlanName
 }
