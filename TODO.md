@@ -13,6 +13,7 @@
                 * [ ] inject mock of lookup response for unit tests
             * [ ] error if prereqs are not met with user friendly message
                * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
+               * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
         * [ ] lookup ClusterServicePlan by service plan name
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli

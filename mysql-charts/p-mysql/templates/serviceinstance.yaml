@@ -30,7 +30,12 @@ spec:
     # This is designed as a poor man tracing facility inside helm chart template without size restrictions
     debuggingField:
       akey: "a value"
-      mockedServiceClasses: {{ .Values.mockedServiceClasses }}
+
+      mockedServiceClasses:
+        # dash asks white space to be chomped
+        # See https://helm.sh/docs/chart_template_guide/control_structures/
+        # See map to yaml formatting at https://stackoverflow.com/a/58986455/1484823
+        {{ .Values.mockedServiceClasses | toYaml | trim }}
 
 
 {{/*  externalServiceClassName: {{ .Values.servicePlanName }}*/}}
