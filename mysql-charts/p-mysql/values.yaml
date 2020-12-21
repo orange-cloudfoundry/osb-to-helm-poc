@@ -2,7 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-servicePlanName: 10mb
+serviceClassName: "p-mysql"
+servicePlanName: "10mb"
 # Supports unit testing: enable injection of entries normally queried from K8S using lookup
 mocked_serviceClasses: {}
 
