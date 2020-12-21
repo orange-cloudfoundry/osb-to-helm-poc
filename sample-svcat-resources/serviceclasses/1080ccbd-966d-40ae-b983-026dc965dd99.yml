@@ -1,0 +1,60 @@
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ClusterServiceClass
+metadata:
+  creationTimestamp: '2020-12-16T14:28:07Z'
+  generation: 1
+  labels:
+    servicecatalog.k8s.io/spec.clusterServiceBrokerName: db722554b6148d68c3cc2efb980c579e7ee235f6f28967242b505895
+    servicecatalog.k8s.io/spec.externalID: 290a209b7321d9f74f7727b439d7d8245a8cb34dd285d780d79bde23
+    servicecatalog.k8s.io/spec.externalName: 338afc5b30ba26e0eddd74c00f2319ac3e5c114ae1a7794881896db3
+  managedFields:
+    - apiVersion: servicecatalog.k8s.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:ownerReferences': {}
+        'f:spec':
+          .: {}
+          'f:bindable': {}
+          'f:bindingRetrievable': {}
+          'f:clusterServiceBrokerName': {}
+          'f:description': {}
+          'f:externalID': {}
+          'f:externalMetadata':
+            .: {}
+            'f:shareable': {}
+          'f:externalName': {}
+          'f:planUpdatable': {}
+          'f:tags': {}
+        'f:status':
+          .: {}
+          'f:removedFromBrokerCatalog': {}
+      manager: service-catalog
+      operation: Update
+      time: '2020-12-20T14:45:19Z'
+  name: 1080ccbd-966d-40ae-b983-026dc965dd99
+  ownerReferences:
+    - apiVersion: servicecatalog.k8s.io/v1beta1
+      blockOwnerDeletion: false
+      controller: true
+      kind: ClusterServiceBroker
+      name: osb
+      uid: 6cf0f77a-5f5d-48b3-8a9d-34f9623ac88d
+  resourceVersion: '22968200'
+  selfLink: >-
+    /apis/servicecatalog.k8s.io/v1beta1/clusterserviceclasses/1080ccbd-966d-40ae-b983-026dc965dd99
+  uid: 1d0ac740-9d87-439b-892a-780cb2636bb5
+spec:
+  bindable: true
+  bindingRetrievable: false
+  clusterServiceBrokerName: osb
+  description: >-
+    Provides an overview of any service instances and bindings that have been
+    created by a platform.
+  externalID: 1080ccbd-966d-40ae-b983-026dc965dd99
+  externalMetadata:
+    shareable: true
+  externalName: overview-service
+  planUpdatable: true
+  tags:
+    - overview-broker
