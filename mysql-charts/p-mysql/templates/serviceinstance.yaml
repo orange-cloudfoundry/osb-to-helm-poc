@@ -8,6 +8,10 @@ spec:
   # TODO: use lookup function to lookup ClusterServiceClass by service offering name
   # https://helm.sh/docs/chart_template_guide/functions_and_pipelines/#using-the-lookup-function
 
+  # This is designed as a poor man tracing facility
+  debuggingVariable:
+    akey: a value
+
   # get all service classes
   # kubectl get serviceclasses.servicecatalog.k8s.io -n catalog
 {{/*  ( lookup "v1" "Pod" "mynamespace" ""   )*/}}

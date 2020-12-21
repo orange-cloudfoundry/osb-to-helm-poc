@@ -3,9 +3,11 @@
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
         * [ ] lookup ClusterServiceClass by service offering name
+            * [ ] define a debugging variable
+            * [ ] render the variable inside the spec
             * [ ] use lookup function
+                * [ ] inject mock of lookup response for unit tests
             * [ ] error if prereqs are not met with user friendly message
-            * [ ] inject mock of lookup response for unit tests
         * [ ] lookup ClusterServicePlan by service plan name
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli
