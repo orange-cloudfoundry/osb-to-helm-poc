@@ -1,11 +1,15 @@
 package main
 
-expect ["serviceinstance.yml produces svcat CR"] {
+expect ["serviceinstance.yml produces svcat namespaced ServiceInstance CR"] {
   k := input["serviceinstance.yaml"].kind
   k == "ServiceInstance"
 
   api := input["serviceinstance.yaml"].apiVersion
   api == "servicecatalog.k8s.io/v1beta1"
+
+  namespace := input["serviceinstance.yaml"].metadata.namespace
+  namespace == "default"
+  namespace == input["values"].namespace
 }
 
 #expect ["empty service instance params by default"] {

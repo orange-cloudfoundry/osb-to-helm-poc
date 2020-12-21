@@ -2,19 +2,21 @@
 
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
-        * [ ] lookup ClusterServiceClass by service offering name
-            * Find a way to add debugging/logging facility
-               * [x] as an unsupported spec field: gets ignored
-               * [x] as an annotation: persisted but restricted in size
-               * [x] as an OSB custom param
-            * [ ] define a debugging variable
-            * [ ] render the variable inside the spec
-            * [ ] use lookup function
-                * [ ] inject mock of lookup response for unit tests
-            * [ ] error if prereqs are not met with user friendly message
-               * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
-               * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
-        * [ ] lookup ClusterServicePlan by service plan name
+        * Use clusterServiceClassName and clusterServicePlanName
+            * [ ] lookup ClusterServiceClass by service offering name
+                * Find a way to add debugging/logging facility
+                   * [x] as an unsupported spec field: gets ignored
+                   * [x] as an annotation: persisted but restricted in size
+                   * [x] as an OSB custom param
+                * [x] define a debugging variable
+                * [x] render the variable inside the spec
+                * [ ] use lookup function
+                    * [ ] inject mock of lookup response for unit tests
+                * [ ] error if prereqs are not met with user friendly message
+                   * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
+                   * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
+            * [ ] lookup ClusterServicePlan by service plan name
+        * [ ] Use clusterServiceClassExternalName and clusterServicePlanExternalName instead
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli
         * [ ] using kubectl
