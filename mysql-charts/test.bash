@@ -72,12 +72,12 @@ for TEST_SUITE in ${TEST_SUITES}; do
   for POLICY in ${POLICIES[@]}; do
     if [[ $POLICY =~ should_fail_to_render ]]; then
       printf "\nChecking expected rendering failure in $POLICY\n"
-      helm unit eval --debug -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY} && displayTestFailures $PWD $POLICY "${VALUES[@]}"
+      helm unit eval --debug -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY} --namespace default && displayTestFailures $PWD $POLICY "${VALUES[@]}"
       printf "Ok rendering was rejected as expected\n"
     else
 #     set -x
       printf "\nChecking test $POLICY\n"
-      helm unit eval --debug -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY} || displayTestFailures $PWD $POLICY "${VALUES[@]}"
+      helm unit eval --debug -t templates/ -c values.yaml ${VALUES_ARG} -p ${POLICY} --namespace default || displayTestFailures $PWD $POLICY "${VALUES[@]}"
 #     set +x
     fi
   done;

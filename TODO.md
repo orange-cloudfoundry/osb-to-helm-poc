@@ -1,31 +1,42 @@
-
-status:
-* finish off making namespace mandatory with require
-  * fix currently failing unit test: 
-* submit an issue to hcunit to make "render_errors" available as inputs
-*
-
-
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
         * ~~Use clusterServiceClassName and clusterServicePlanName~~
             * [ ] lookup ClusterServiceClass by service offering name
                 * Find a way to add debugging/logging facility
-                   * [x] as an unsupported spec field: gets ignored
-                   * [x] as an annotation: persisted but restricted in size
-                   * [x] as an OSB custom param
+                    * [x] as an unsupported spec field: gets ignored
+                    * [x] as an annotation: persisted but restricted in size
+                    * [x] as an OSB custom param
                 * [x] define a debugging variable
                 * [x] render the variable inside the spec
                 * [ ] use lookup function
                     * [ ] inject mock of lookup response for unit tests
                 * [ ] error if prereqs are not met with user friendly message
-                   * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
-                   * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
+                    * using required
+                      function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
+                    * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
             * [ ] lookup ClusterServicePlan by service plan name
         * [x] Use clusterServiceClassExternalName and clusterServicePlanExternalName instead
-           * [ ] make namespace value mandatory in the template
-           * [ ] make namespace value mandatory in the json schema
-           * [ ] add json schema for supported plan values, making 
+            * [x] make namespace value mandatory in the template
+                * [x] submit an issue to hcunit to make "render_errors" available as
+                  inputs https://github.com/xchapter7x/hcunit/issues/2
+            * [ ] fix syntax namespace as rancherUi did not specify it in values: `values-p-mysql-2.1.0.yaml`
+              ```json
+              {
+                "global": {
+                  "cattle": {
+                    "clusterId": "c-6xlsw",
+                    "clusterName": "serv",
+                    "systemDefaultRegistry": ""
+                  },
+                  "systemDefaultRegistry": ""
+                },
+                "servicePlanName": "15mb"
+              }
+              ```
+              * [ ] Use {{ .Release.Namespace }} from https://helm.sh/docs/chart_template_guide/builtin_objects/
+                * [ ] Check hcunit support: --namespace 
+            * [ ] make namespace value mandatory in the json schema
+            * [ ] add json schema for supported plan values, making
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli
         * [ ] using kubectl
@@ -34,7 +45,7 @@ status:
         * https://helm.sh/docs/helm/helm_uninstall/
 
 * [ ] Add integration tests using KIND and a self hosted broker (minibroker/ CF overview service)
-  * Benefits: automate end to end test including svcat bumps/regressions.
+    * Benefits: automate end to end test including svcat bumps/regressions.
 
 * [ ] Unprovisionning as chart release deletion: error case where svcat CR fail to delete
 * [ ] Unprovisionning as chart release deletion: error case where underlying svcat CRs where modified by the user
@@ -78,10 +89,10 @@ status:
             * [ ] prompt user for the service broker login/password
             * [ ] embed the service broker login/password in the helm chart
                 * the helm chart repo is protected with auth
-                * the helm chart might contain audit trail of who asked for its generation, in order to track potential leaks when chart is distributed   
+                * the helm chart might contain audit trail of who asked for its generation, in order to track potential
+                  leaks when chart is distributed
                 * encrypt them as PGP. https://medium.com/@kuljeetsinghkhurana/pgp-with-helm-secrets-88401cf8dd50
                     * https://github.com/zendesk/helm-secrets
-  
 
 
 * [ ] format static NOTES.txt with
@@ -105,14 +116,15 @@ status:
         * [ ] https url
 * [ ] dynamically generate README.md with
     * Implementation alternatives
-      * [ ] Try as an unused chart/template/README.md.yml
-          * [ ] Q: how to render it ?
-              * [ ] Using `helm template` https://helm.sh/docs/helm/helm_template/
-      * [ ] Investigate further use of helm chart generators that generates README.md from chart/values.yml
-         * [ ] https://github.com/kubepack/chart-doc-gen
-         * [ ] https://github.com/norwoodj/helm-docs
-         * [ ] frigate (from python community), see https://medium.com/rapids-ai/introducing-frigate-a-documentation-generation-tool-for-kubernetes-1791854031a1
-      * Plain go templates https://godoc.org/text/template
+        * [ ] Try as an unused chart/template/README.md.yml
+            * [ ] Q: how to render it ?
+                * [ ] Using `helm template` https://helm.sh/docs/helm/helm_template/
+        * [ ] Investigate further use of helm chart generators that generates README.md from chart/values.yml
+            * [ ] https://github.com/kubepack/chart-doc-gen
+            * [ ] https://github.com/norwoodj/helm-docs
+            * [ ] frigate (from python community),
+              see https://medium.com/rapids-ai/introducing-frigate-a-documentation-generation-tool-for-kubernetes-1791854031a1
+        * Plain go templates https://godoc.org/text/template
     * [ ] short description
     * [ ] long description
     * [ ] tags
