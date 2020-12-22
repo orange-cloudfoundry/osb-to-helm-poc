@@ -12,7 +12,6 @@ function renderHelmChart () {
   local policy="$1"; shift
   local values=( $@ )
 
-  local values_absolute_path=$(printf "${PWD}/%s " "${values[@]}")
 
   # Note: this works when helm/kubectl is properly configured with a remote server
   # otherwise fails with:
@@ -21,10 +20,13 @@ function renderHelmChart () {
   # Kubernetes cluster unreachable
   echo "From an environment with access to a kube server, you may render the failed chart with command:"
   #See https://github.com/koalaman/shellcheck/wiki/SC2145 about ${values[*]} instead of ${values[@]}
-  echo "helm install my-render-test --values ${values[*]} --dry-run --debug $pathToChart"
+  local values_arg
+  values_arg=$(printf ' --values %s' "${values[@]}")
+  echo "helm install my-render-test $pathToChart ${values_arg} --dry-run --debug "
 
   # Native hcunit_unix current rendering fails because it lacks supports for template helpers
   # See https://github.com/xchapter7x/hcunit/issues/28
+  # local values_absolute_path=$(printf "${PWD}/%s " "${values[@]}")
   # echo "helm unit render -t  $pathToChart/templates/ -c ${values_absolute_path}"
   # local helm_plugins=$(helm env| grep PLUGIN | cut -d'"' -f2)
   # set -x
