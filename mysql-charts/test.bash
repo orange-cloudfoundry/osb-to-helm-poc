@@ -20,7 +20,8 @@ function renderHelmChart () {
   # helm.go:81: [debug] the server has asked for the client to provide credentials
   # Kubernetes cluster unreachable
   echo "From an environment with access to a kube server, you may render the failed chart with command:"
-  echo "helm install my-render-test --values $values --dry-run --debug $pathToChart"
+  #See https://github.com/koalaman/shellcheck/wiki/SC2145 about ${values[*]} instead of ${values[@]}
+  echo "helm install my-render-test --values ${values[*]} --dry-run --debug $pathToChart"
 
   # Native hcunit_unix current rendering fails because it lacks supports for template helpers
   # See https://github.com/xchapter7x/hcunit/issues/28
@@ -38,7 +39,7 @@ function displayTestFailures () {
   local pathToChart="$1"; shift
   local policy="$1"; shift
   local values=( $@ )
-  local flattened_values="${values[@]}"
+  local flattened_values="${values[*]}"
   printf "\nReproduce locally with cmd:\n cd $PWD; helm unit eval -t templates/ -c values.yaml ${flattened_values} -p ${policy}\n"
 
   renderHelmChart "$pathToChart" "$policy" "${values[@]}"
