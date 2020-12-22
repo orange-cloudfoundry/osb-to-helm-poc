@@ -2,7 +2,7 @@ apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
   name: {{ include "p-mysql.fullname" . }}
-  namespace: {{ .Values.namespace }} # Mandatory since ServiceInstance is a namespaced resource
+  namespace: {{ required "A valid namespace is required" .Values.namespace }} # Mandatory since ServiceInstance is a namespaced resource
   labels:
     {{- include "p-mysql.labels" . | nindent 4 }}
 spec:

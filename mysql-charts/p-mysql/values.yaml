@@ -4,7 +4,8 @@
 
 serviceClassName: "p-mysql"
 servicePlanName: "10mb"
-namespace: "default"
+# Namespace into which the ServiceInstance CR will be provisionned. Mandatory.
+namespace:
 
 # Supports unit testing: enable injection of entries normally queried from K8S using lookup
 mockedServiceClasses:

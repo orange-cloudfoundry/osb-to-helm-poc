@@ -1,8 +1,14 @@
 
+status:
+* finish off making namespace mandatory with require
+  * fix currently failing unit test: 
+* submit an issue to hcunit to make "render_errors" available as inputs
+*
+
 
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
-        * Use clusterServiceClassName and clusterServicePlanName
+        * ~~Use clusterServiceClassName and clusterServicePlanName~~
             * [ ] lookup ClusterServiceClass by service offering name
                 * Find a way to add debugging/logging facility
                    * [x] as an unsupported spec field: gets ignored
@@ -16,7 +22,10 @@
                    * using required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
                    * using failed function https://helm.sh/docs/chart_template_guide/function_list/#fail
             * [ ] lookup ClusterServicePlan by service plan name
-        * [ ] Use clusterServiceClassExternalName and clusterServicePlanExternalName instead
+        * [x] Use clusterServiceClassExternalName and clusterServicePlanExternalName instead
+           * [ ] make namespace value mandatory in the template
+           * [ ] make namespace value mandatory in the json schema
+           * [ ] add json schema for supported plan values, making 
     * [ ] Bind/unbind as release note command
         * [ ] using svcat cli
         * [ ] using kubectl
@@ -24,7 +33,7 @@
     * [ ] Unprovisionning as chart release deletion: normal case
         * https://helm.sh/docs/helm/helm_uninstall/
 
-* [ ] Add integration tests using KIND and a shelf hosted broker (minibroker/ CF overview service)
+* [ ] Add integration tests using KIND and a self hosted broker (minibroker/ CF overview service)
   * Benefits: automate end to end test including svcat bumps/regressions.
 
 * [ ] Unprovisionning as chart release deletion: error case where svcat CR fail to delete
