@@ -1,3 +1,15 @@
+Daily status:
+* clean up experiment with mandatory namespace value
+  * backup test support for failed rendering
+    * change required experiment with rendering time consistency check
+* check version based on {{ .Release.Namespace }} finally instanciated into rancher-ui (helm deployment pods was long to be scheduled, and then still in the reconciling state)
+* commit to github/master (and possibly cleanup `sample-for-hcunit-rendering-issue` branch)
+
+
+* [ ] Experiment with input validation
+   * [ ] required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
+      * does not render in a friendly maneer in rancherui: message is hidden deep in the logs of the helm chart deployment pod 
+
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
         * ~~Use clusterServiceClassName and clusterServicePlanName~~
@@ -36,10 +48,13 @@
               * [ ] Use {{ .Release.Namespace }} from https://helm.sh/docs/chart_template_guide/builtin_objects/
                 * [ ] Check hcunit support: --namespace 
             * [ ] make namespace value mandatory in the json schema
-            * [ ] add json schema for supported plan values, making
+            * [ ] add json schema for supported plan values, making (P1)
     * [ ] Bind/unbind as release note command
-        * [ ] using svcat cli
-        * [ ] using kubectl
+        * [ ] using optional values: service_bindings array
+        * Manually outside of the helm chart:  
+           * [ ] using svcat cli
+           * [ ] using kubectl
+           * Q: how would the chart unprovision handle the existing ServiceBinding objects ? Would the ServiceInstance CR refuse its deletion ?  
         * [ ] using distinct helm chart
     * [ ] Unprovisionning as chart release deletion: normal case
         * https://helm.sh/docs/helm/helm_uninstall/
