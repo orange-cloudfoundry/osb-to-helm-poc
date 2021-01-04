@@ -8,3 +8,4 @@ Creating a service instance MariaDB provisions a database. Binding applications 
 * 1.3.0: bump mariadb to version x.y.z
   
 * 2.1.0: clusterServiceClassExternalName and clusterServicePlanExternalName 
+* 2.2.0: added values.schema.json 

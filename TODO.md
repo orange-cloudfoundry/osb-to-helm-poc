@@ -49,6 +49,8 @@ Daily status:
                 * [ ] Check hcunit support: --namespace 
             * [ ] make namespace value mandatory in the json schema
             * [ ] add json schema for supported plan values, making (P1)
+               * Primer at https://json-schema.org/understanding-json-schema/UnderstandingJSONSchema.pdf
+               * Intellij support at https://www.jetbrains.com/help/idea/2020.3/json.html#ws_json_schema_add_custom
     * [ ] Bind/unbind as release note command
         * [ ] using optional values: service_bindings array
         * Manually outside of the helm chart:  
