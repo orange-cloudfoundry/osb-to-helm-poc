@@ -1,14 +1,14 @@
 package main
 
-expect ["notes.txt renders as string"] {
+expect ["NOTES.txt renders as string"] {
   notes := input["NOTES.txt"]
 
   not is_null(notes)
   is_string(notes)
 }
 
-expect ["notes.txt contains header"] {
+expect ["NOTES.txt contains header"] {
   notes := input["NOTES.txt"]
 
-  contains(notes, "NOTES.txt controls this text output once a chart is installed.")
+  contains(notes, "Dashboard url may be accessed through the following command:")
 }

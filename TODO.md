@@ -113,11 +113,22 @@ Daily status:
 
 
 * [ ] format static NOTES.txt with
-    * [ ] dashboard URL
     * [ ] current plan and cost
     * [ ] possible plan upgrades with cost
 * [ ] dynamically generate NOTES.txt with
     * [ ] dashboard URL
+      * [x] assertion with the NOTES.txt rendering
+      * [x] iterate with a cluster: Pb the NOTES.txt template is rendered before the chart gets installed
+      * alternatives
+        * print a kubectl command to obtain the dashboard afterwards
+        * ask the user to update the helm chart to have the NOTES.txt updated  
+        * use the helm test support to extract the dashboard ?
+           * https://helm.sh/docs/topics/chart_tests/
+           * would mean writing the dashboard url to stdout upon "helm test" command 
+        * use a helm chart hook https://helm.sh/docs/topics/charts_hooks/  ?
+           * seems to only support definining new K8S resources
+           * A CR "ServiceInstanceDashboard" to simplify the lookup of the dashboard URL ?
+        
     * [ ] current plan and cost
     * [ ] possible plan upgrades with cost
 
