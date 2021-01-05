@@ -25,6 +25,7 @@ jobs:
       - run:
           name: Generate Helm from OSB catalog
           command: |
+            # TODO: try to cache this download in the docker image or in the workspace.
             ./install-build-prereqs.bash
             # Just checking for now that generation does not fail.
             # Packaging is likely to be different in the future
