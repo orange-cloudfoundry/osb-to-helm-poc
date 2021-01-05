@@ -1,14 +1,9 @@
-Daily status:
-* clean up experiment with mandatory namespace value
-  * backup test support for failed rendering
-    * change required experiment with rendering time consistency check
-* check version based on {{ .Release.Namespace }} finally instanciated into rancher-ui (helm deployment pods was long to be scheduled, and then still in the reconciling state)
-* commit to github/master (and possibly cleanup `sample-for-hcunit-rendering-issue` branch)
 
 
 * [ ] Experiment with input validation
    * [ ] required function https://helm.sh/docs/howto/charts_tips_and_tricks/#using-the-required-function
-      * does not render in a friendly maneer in rancherui: message is hidden deep in the logs of the helm chart deployment pod 
+      * does not render in a friendly maneer in rancherui: message is hidden deep in the logs of the helm chart deployment pod
+   * [ ] Json schema: pending access to helm UI instances 
 
 * Initial MVP: provision, bind, unbind, unprovision
     * [ ] Provision with default plan
@@ -93,9 +88,6 @@ Daily status:
     * [ ] Test rollback https://helm.sh/docs/helm/helm_rollback/
 
 
-* [ ] NOTES.txt mentionning the last upgraded step from maintenance_info
-
-
 * [ ] investigate making the helm chart self contained with minimum prereqs
     * Possible alternative prereqs and associated helm chart features
         * [ ] install svcat
@@ -112,10 +104,8 @@ Daily status:
                     * https://github.com/zendesk/helm-secrets
 
 
-* [ ] format static NOTES.txt with
-    * [ ] current plan and cost
-    * [ ] possible plan upgrades with cost
-* [ ] dynamically generate NOTES.txt with
+
+* [~] dynamically generate NOTES.txt with
     * [x] dashboard URL
       * [x] assertion with the NOTES.txt rendering
       * [x] iterate with a cluster: Pb the NOTES.txt template is rendered before the chart gets installed
@@ -129,20 +119,13 @@ Daily status:
            * seems to only support definining new K8S resources
            * A CR "ServiceInstanceDashboard" to simplify the lookup of the dashboard URL ?
         
-    * [ ] current plan and cost
-    * [ ] possible plan upgrades with cost
+    * [x] current plan and cost
+    * [x] possible plan upgrades with cost
+    * [ ] Harden with conditionals for optional teals  
+    * [ ] Assert unit test assertion for each case
 
-* [ ] format static README.md with
-    * [ ] review best practices at https://helm.readthedocs.io/en/latest/awesome/
-    * [ ] short description
-    * [ ] long description
-    * [ ] tags as keywords
-        * [ ] review conventions and best practices at https://helm.readthedocs.io/en/latest/using_labels/
-        * test it with https://helm.sh/docs/helm/helm_search/
-    * [ ] image icon url
-        * [ ] image data format
-        * [ ] https url
-* [ ] dynamically generate README.md with
+
+* [~] dynamically generate README.md with
     * Implementation alternatives
         * [ ] Try as an unused chart/template/README.md.yml
             * [ ] Q: how to render it ?
@@ -155,17 +138,18 @@ Daily status:
             * [ ] frigate (from python community),
               see https://medium.com/rapids-ai/introducing-frigate-a-documentation-generation-tool-for-kubernetes-1791854031a1
         * Plain go templates https://godoc.org/text/template
-            * [ ] with a CLI https://github.com/hairyhenderson/gomplate
+            * [~] with a CLI https://github.com/hairyhenderson/gomplate
                * [x] Install the tool
                * [x] Craft a template
                * [x] Manually assert result against sample-p-mysql-catalog.json
                * [ ] Package 
-               * [ ] Assert unit test assertion
+               * [ ] Harden with conditionals for optional teals  
+               * [ ] Assert unit test assertion for each case
         
-    * [ ] short description
-    * [ ] long description
-    * [ ] tags
-    * [ ] image icon url
+    * [x] short description
+    * [x] long description
+    * [x] tags
+    * [ ] image icon url: lacking rendering test in helm UIs
         * [ ] image data format
         * [ ] https url
 
