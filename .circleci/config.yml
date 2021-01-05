@@ -6,12 +6,14 @@ orbs:
 workflows:
   helm-chart-lint:
     jobs:
+      - generate-from-osb
       - helm/lint-chart:
           charts-dir: mysql-charts/p-mysql
           filters:
             tags:
               ignore: /.*/
-      - unit-tests
+#Unit tests are currently disabled blocked by https://github.com/xchapter7x/hcunit/issues/31
+#      - unit-tests
 jobs:
   generate-from-osb:
     docker:
@@ -27,32 +29,32 @@ jobs:
             # Packaging is likely to be different in the future
             ./generate-readme.bash
             ./generate-chart_yml.bash
-    #Unit tests are currently disabled blocked by https://github.com/xchapter7x/hcunit/issues/31
-#  unit-tests:
-#    docker:
-#    # From https://circleci.com/developer/orbs/orb/banzaicloud/helm
-#      - image: ghcr.io/banzaicloud/helm:0.0.8
-#    working_directory: ~/osb-2-helm-poc
-#    steps:
-#      - checkout
-#      - run:
-#          name: Generate from OSB catalog
-#          command: |
-#            #Just checking for now that
-#            ./generate-readme.bash
-#            ./generate-chart_yml.bash
-#      - run:
-#          name: Run helm chart unit tests
-#          command: |
-#            #helm plugin install https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
-#            curl -LO https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
-#            # env | sort
-#            #Try to find out where $HELM_HOME is
-#            # find / -name "helm-push*"
-#            # pwd
-#            # ls -al /.helm/helm/plugins/
-#            mkdir /.helm/helm/plugins/hcunit_plugin
-#            tar xvfz hcunit_plugin.tgz --directory=/.helm/helm/plugins/hcunit_plugin
-#            # ls -alRt /.helm/helm/plugins/
-#            cd mysql-charts;./test.bash
+
+  unit-tests:
+    docker:
+    # From https://circleci.com/developer/orbs/orb/banzaicloud/helm
+      - image: ghcr.io/banzaicloud/helm:0.0.8
+    working_directory: ~/osb-2-helm-poc
+    steps:
+      - checkout
+      - run:
+          name: Generate from OSB catalog
+          command: |
+            #Just checking for now that
+            ./generate-readme.bash
+            ./generate-chart_yml.bash
+      - run:
+          name: Run helm chart unit tests
+          command: |
+            #helm plugin install https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
+            curl -LO https://github.com/xchapter7x/hcunit/releases/latest/download/hcunit_plugin.tgz
+            # env | sort
+            #Try to find out where $HELM_HOME is
+            # find / -name "helm-push*"
+            # pwd
+            # ls -al /.helm/helm/plugins/
+            mkdir /.helm/helm/plugins/hcunit_plugin
+            tar xvfz hcunit_plugin.tgz --directory=/.helm/helm/plugins/hcunit_plugin
+            # ls -alRt /.helm/helm/plugins/
+            cd mysql-charts;./test.bash
 
