@@ -1,6 +1,7 @@
 Further experiments querying the K8S cluster to display other resources
 
-This should be included in NOTES.txt
+{{ $fullName:=include "p-mysql.fullname" . -}}
+{{ $serviceInstance:= ( lookup "servicecatalog.k8s.io/v1beta1" "ServiceInstance" .Release.Namespace  $fullName) -}}
 
 Following is a dump of existing ServiceInstance resources when the NOTES.txt templates renders
 {{ range $index, $service := (lookup "servicecatalog.k8s.io/v1beta1" "ServiceInstance" .Release.Namespace  "").items }}
