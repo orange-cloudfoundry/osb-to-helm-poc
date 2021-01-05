@@ -116,12 +116,12 @@ Daily status:
     * [ ] current plan and cost
     * [ ] possible plan upgrades with cost
 * [ ] dynamically generate NOTES.txt with
-    * [ ] dashboard URL
+    * [x] dashboard URL
       * [x] assertion with the NOTES.txt rendering
       * [x] iterate with a cluster: Pb the NOTES.txt template is rendered before the chart gets installed
       * alternatives
-        * print a kubectl command to obtain the dashboard afterwards
-        * ask the user to update the helm chart to have the NOTES.txt updated  
+        * [x] print a kubectl command to obtain the dashboard afterwards
+        * [x] ask the user to update the helm chart to have the NOTES.txt updated  
         * use the helm test support to extract the dashboard ?
            * https://helm.sh/docs/topics/chart_tests/
            * would mean writing the dashboard url to stdout upon "helm test" command 
@@ -147,12 +147,21 @@ Daily status:
         * [ ] Try as an unused chart/template/README.md.yml
             * [ ] Q: how to render it ?
                 * [ ] Using `helm template` https://helm.sh/docs/helm/helm_template/
-        * [ ] Investigate further use of helm chart generators that generates README.md from chart/values.yml
+        * [x] Investigate further use of helm chart generators that generates README.md from chart/values.yml
             * [ ] https://github.com/kubepack/chart-doc-gen
+              * [ ] dowload on local desktop
+              * Problem: the templating support only allow controlling the README.md structure, but the values.yml parsing is hard coded   
             * [ ] https://github.com/norwoodj/helm-docs
             * [ ] frigate (from python community),
               see https://medium.com/rapids-ai/introducing-frigate-a-documentation-generation-tool-for-kubernetes-1791854031a1
         * Plain go templates https://godoc.org/text/template
+            * [ ] with a CLI https://github.com/hairyhenderson/gomplate
+               * [x] Install the tool
+               * [x] Craft a template
+               * [x] Manually assert result against sample-p-mysql-catalog.json
+               * [ ] Package 
+               * [ ] Assert unit test assertion
+        
     * [ ] short description
     * [ ] long description
     * [ ] tags

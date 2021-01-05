@@ -1,11 +1,36 @@
-Creating a service instance MariaDB provisions a database. Binding applications provisions unique credentials for each application to access the database. 
 
-### Change Log
+# p-mysql
 
-* 1.0.0: initial version
-* 1.1.0: adds grafana dashboards to new instances
-* 1.2.0: adds grafana dashboards to old instances
-* 1.3.0: bump mariadb to version x.y.z
-  
-* 2.1.0: clusterServiceClassExternalName and clusterServicePlanExternalName 
-* 2.2.0: added values.schema.json 
+MariaDB databases 10.3.22 on demand on shared cluster
+
+## TL;DR;
+
+```console
+$ helm repo add osb2helmRepo https://sample.domain.org/stable/
+$ helm repo update
+$ helm install my-service osb2helmRepo/p-mysql -n mynamespace --version=v1.0.0
+```
+
+## Introduction
+
+This chart deploys an instance of the following managed service using service catalog. Optionally choose to also instanciate service binding
+
+## Service description
+
+ Creating a service instance MariaDB provisions a database. Binding applications provisions unique credentials for each application to access the database.
+
+![imageUrl](data:image/png;base64,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)
+
+  * Provided by: Cloud Foundry / MariaDB
+  * [Additional documentation](https://mariadb.com/kb/en/library/)
+  * [Support](https://redacted-domain.org/contact-us/)
+
+## Service plans
+
+Name |  Description | Cost | Additional information | Latest version
+-- | -- | -- | -- | --
+10mb | Shared MySQL/MariaDB Galera Cluster |Monthly: 10 eur |10 MB storage</br>5 concurrent connections</br> |v1.1.0</br>osb-cmdb now propagates dashboard url (instant upgrade, no downtime)
+20mb | Shared MySQL/MariaDB Galera Cluster |Monthly: 20 eur |20 MB storage</br>5 concurrent connections</br> |v1.1.0</br>osb-cmdb now propagates dashboard url (instant upgrade, no downtime)
+100mb | Shared MySQL/MariaDB Galera Cluster |Monthly: 100 eur |100 MB storage</br>10 concurrent connections</br> |v1.1.0</br>osb-cmdb now propagates dashboard url (instant upgrade, no downtime)
+1gb | Shared MySQL/MariaDB Galera Cluster |Monthly: 1000 eur |1 GB storage</br>20 concurrent connections</br> |v1.1.0</br>osb-cmdb now propagates dashboard url (instant upgrade, no downtime)
+15gb | Shared MySQL/MariaDB Galera Cluster |Monthly: 1500 eur |15 GB storage</br>20 concurrent connections</br> |v1.1.0</br>osb-cmdb now propagates dashboard url (instant upgrade, no downtime)
