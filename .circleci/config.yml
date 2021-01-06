@@ -44,12 +44,14 @@ jobs:
       - run:
           name: Generate from OSB catalog
           command: |
-            #Just checking for now that
+            #Just checking for now that rendering does not fail
             ./generate-readme.bash
             ./generate-chart_yml.bash
             ./generate-app-readme.bash
             ./generate-questions-yml.bash
             ./generate-helpers-tpl.bash p-mysql
+            ./generate-notes-txt.bash p-mysql
+            ./generate-K8S-templates.bash p-mysql
       - run:
           name: Run helm chart unit tests
           command: |
