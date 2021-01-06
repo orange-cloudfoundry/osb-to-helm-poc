@@ -32,6 +32,7 @@ jobs:
             ./generate-readme.bash
             ./generate-app-readme.bash
             ./generate-chart_yml.bash
+            ./generate-questions-yml.bash
 
   unit-tests:
     docker:

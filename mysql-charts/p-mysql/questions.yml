@@ -1,0 +1,20 @@
+categories:
+  - mysql
+labels:
+#  io.rancher.certified: partner
+  io.cattle.role: project # options are cluster/project
+questions:
+  - variable: servicePlanName
+    default: "10mb"
+    description: "See README for full details of service plans"
+    type: enum
+    required: true
+    options:
+      - "10mb"
+      - "20mb"
+      - "100mb"
+      - "1gb"
+      - "15gb"
+    label: "Service plan"
+    group: "Service Plan"
+    show_if: "true"
