@@ -30,6 +30,7 @@ jobs:
             # Just checking for now that generation does not fail.
             # Packaging is likely to be different in the future
             ./generate-readme.bash
+            ./generate-app-readme.bash
             ./generate-chart_yml.bash
 
   unit-tests:
