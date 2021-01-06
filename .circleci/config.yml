@@ -47,6 +47,9 @@ jobs:
             #Just checking for now that
             ./generate-readme.bash
             ./generate-chart_yml.bash
+            ./generate-app-readme.bash
+            ./generate-questions-yml.bash
+            ./generate-helpers-tpl.bash p-mysql
       - run:
           name: Run helm chart unit tests
           command: |
