@@ -1,11 +1,12 @@
 #!/bin/bash
-
-CHART_NAME=$1
-
-echo "generating NOTES.txt with chart name=$CHART_NAME"
 set -e
 
-sed "s/p-mysql/${CHART_NAME}/g" < NOTES.txt.tpl  | tee mysql-charts/p-mysql/templates/NOTES.txt
+CHART_NAME=$1
+DEST_CHART_DIR=$2
+echo "generating NOTES.txt with chart name=$CHART_NAME into DEST_CHART_DIR=${DEST_CHART_DIR}"
+set -e
+
+sed "s/p-mysql/${CHART_NAME}/g" < NOTES.txt.tpl  > ${DEST_CHART_DIR}/templates/NOTES.txt
 
 
 

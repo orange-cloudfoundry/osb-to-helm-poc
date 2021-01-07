@@ -31,7 +31,10 @@ keywords:
 {{- range $servicedefinition.tags }}
 - {{.}}
 {{ end}}
+{{ if coll.Has $servicedefinition.metadata "documentationUrl" -}}
 home: {{ $servicedefinition.metadata.documentationUrl }}
+{{ end}}
+
 #sources:
 #  - A list of URLs to source code for this project (optional)
 #dependencies: # A list of the chart requirements (optional)
@@ -49,11 +52,19 @@ maintainers: # (optional)
 #  - name: The maintainers name (required for each maintainer)
 #    email: The maintainers email (optional for each maintainer)
 #    url: A URL for the maintainer (optional for each maintainer)
-- name: "{{ $servicedefinition.metadata.providerDisplayName }}"
+{{ if coll.Has $servicedefinition.metadata "providerDisplayName" }}
+  - name: "{{ $servicedefinition.metadata.providerDisplayName }}"
+  {{- if coll.Has $servicedefinition.metadata "supportUrl" }}
+    url: {{ $servicedefinition.metadata.supportUrl }}
+  {{- end}}
+{{- end}}
 #    email: The maintainers email (optional for each maintainer)
-  url: {{ $servicedefinition.metadata.supportUrl }}
+{{ if coll.Has $servicedefinition.metadata "imageUrl" -}}
 icon: {{ $servicedefinition.metadata.imageUrl }}
+{{- end}}
 #deprecated: Whether this chart is deprecated (optional, boolean)
 annotations:
 # See https://helm.readthedocs.io/en/latest/using_labels/
+{{- if coll.Has $servicedefinition.metadata "providerDisplayName" }}
   provider: "{{ $servicedefinition.metadata.providerDisplayName }}"
+{{- end}}

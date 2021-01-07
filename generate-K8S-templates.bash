@@ -1,9 +1,8 @@
 #!/bin/bash
-
-
 set -e
 CHART_NAME=$1
+DEST_CHART_DIR=$2
 
-echo "generating serviceinstance.yaml with chart name=$CHART_NAME"
+echo "generating serviceinstance.yaml with chart name=$CHART_NAME into DEST_CHART_DIR=${DEST_CHART_DIR}"
 
-sed "s/p-mysql/${CHART_NAME}/g" < serviceinstance.yaml.tpl  | tee mysql-charts/p-mysql/templates/serviceinstance.yaml
+sed "s/p-mysql/${CHART_NAME}/g" < serviceinstance.yaml.tpl  > ${DEST_CHART_DIR}/templates/serviceinstance.yaml
