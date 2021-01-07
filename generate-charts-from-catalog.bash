@@ -23,10 +23,10 @@ EOF
 export SERVICE_INDEX=0
 for SERVICE_NAME in $SERVICE_NAMES; do
   echo "generating chart for SERVICE_NAME=${SERVICE_NAME} and SERVICE_INDEX=${SERVICE_INDEX}"
-  DEST_CHART_DIR="./mysql-charts/$SERVICE_NAME/"
+  DEST_CHART_DIR="./generated-charts/$SERVICE_NAME/"
   mkdir -p ${DEST_CHART_DIR}/templates
 
-  CATALOG_FILE="./mysql-charts/catalog-${SERVICE_NAME}.json"
+  CATALOG_FILE="./generated-charts/catalog-${SERVICE_NAME}.json"
   ./gomplate -i "${EXTRACT_CATALOG_TEMPLATE}" -d servicecatalog=${OSB_CATALOG_FILE} > ${CATALOG_FILE}
   ls -al ${CATALOG_FILE}
 

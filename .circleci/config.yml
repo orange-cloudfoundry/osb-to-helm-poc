@@ -8,7 +8,7 @@ workflows:
     jobs:
       - generate-from-osb
       - helm/lint-chart:
-          charts-dir: mysql-charts/p-mysql
+          charts-dir: generated-charts/p-mysql
           filters:
             tags:
               ignore: /.*/
@@ -29,10 +29,13 @@ jobs:
             ./install-build-prereqs.bash
             # Just checking for now that generation does not fail.
             # Packaging is likely to be different in the future
-            ./generate-readme.bash
-            ./generate-app-readme.bash
-            ./generate-chart_yml.bash
-            ./generate-questions-yml.bash
+            ./generate-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
+            ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
+            ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/
 
   unit-tests:
     docker:
@@ -45,13 +48,13 @@ jobs:
           name: Generate from OSB catalog
           command: |
             #Just checking for now that rendering does not fail
-            ./generate-readme.bash ./sample-p-mysql-catalog.json ./mysql-charts/p-mysql/
-            ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./mysql-charts/p-mysql/
-            ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./mysql-charts/p-mysql/
-            ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./mysql-charts/p-mysql/
-            ./generate-helpers-tpl.bash p-mysql ./mysql-charts/p-mysql/
-            ./generate-notes-txt.bash p-mysql ./mysql-charts/p-mysql/
-            ./generate-K8S-templates.bash p-mysql ./mysql-charts/p-mysql/
+            ./generate-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
+            ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
+            ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/
       - run:
           name: Run helm chart unit tests
           command: |
