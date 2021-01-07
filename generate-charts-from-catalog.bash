@@ -2,7 +2,7 @@
 
 
 set -e
-set -x
+#set -x
 if [[ "$#" -lt 1 ]];then
   echo "Usage: `basename "$0"` OSB_CATALOG_FILE"
   exit 1
@@ -34,6 +34,7 @@ for SERVICE_NAME in $SERVICE_NAMES; do
   ./generate-chart_yml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
   ./generate-app-readme.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
   ./generate-questions-yml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
+  ./generate-values-yaml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
   ./generate-helpers-tpl.bash p-mysql ${DEST_CHART_DIR}
   ./generate-notes-txt.bash p-mysql ${DEST_CHART_DIR}
   ./generate-K8S-templates.bash p-mysql ${DEST_CHART_DIR}

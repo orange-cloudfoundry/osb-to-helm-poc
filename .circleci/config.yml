@@ -33,6 +33,7 @@ jobs:
             ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
             ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
             ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-values-yaml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
             ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
             ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
             ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/

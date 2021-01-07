@@ -23,7 +23,7 @@ Creating a service instance MariaDB provisions a database. Binding applications 
 
 * Provided by: Cloud Foundry / MariaDB
 * [Additional documentation](https://mariadb.com/kb/en/library/)
-* [Support](https://cap.nd-cfapi.itn.ftgroup/contact-us/)
+* [Support](https://redacted-domain.org/contact-us/)
 
 ## Service plans
 
