@@ -2,33 +2,9 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "properties": {
     "servicePlanName": {
-      "description": "See README for full details. 10 mb: Shared MySQL/MariaDB Galera Cluster. 10 MB storage, 5 concurrent connections. Cost: eur:10 unit:Monthly      \r\n20 mb: Shared MySQL/MariaDB Galera Cluster. 20 MB storage, 5 concurrent connections. Cost: eur:20 unit:Monthly\n",
+      "description": "See README for full details.",
       "type": "string",
       "enum": [ "10mb", "20mb", "100mb", "1gb"]
-    },
-    "image": {
-      "description": "Container Image",
-      "properties": {
-        "repo": {
-          "type": "string"
-        },
-        "tag": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "name": {
-      "description": "Service name",
-      "type": "string"
-    },
-    "port": {
-      "description": "Port",
-      "minimum": 0,
-      "type": "integer"
-    },
-    "protocol": {
-      "type": "string"
     }
   },
   "required": [
