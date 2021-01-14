@@ -4,7 +4,7 @@
     "servicePlanName": {
       "description": "See README for full details.",
       "type": "string",
-      "enum": [ "10mb", "20mb", "100mb", "1gb"]
+      "enum":["10mb","20mb","100mb","1gb","15gb"]
     }
   },
   "required": [

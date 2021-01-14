@@ -24,8 +24,9 @@
       * [x] invoke generation scripts
          * [x] refactor existing script to take the service definition file as argument
    * [x] clean up repos structure by renaming mysql-charts into "generated-charts" 
-   * [ ] Generate values.yml   
-   * [ ] Generate values.schema.json   
+   * [x] Generate values.yml   
+   * [x] Generate values.schema.json  
+     * Need to format array in Json: use toJson from slice
    * [ ] Update the catalog to use one useful for our demos
       * [ ] Redact urls   
    * [ ] Commit generated charts to get them linted by circle ci  
