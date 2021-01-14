@@ -8,6 +8,11 @@ workflows:
     jobs:
       - generate-from-osb
       - helm/lint-chart:
+          charts-dir: manual-charts-experiments/p-mysql
+          filters:
+            tags:
+              ignore: /.*/
+      - helm/lint-chart:
           charts-dir: generated-charts/p-mysql
           filters:
             tags:
