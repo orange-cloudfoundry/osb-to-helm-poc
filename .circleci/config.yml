@@ -42,6 +42,7 @@ jobs:
             ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
             ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
             ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/
+            ./generate-charts-from-catalog.bash ./sample-p-mysql-catalog.json ./generated-charts
 
   unit-tests:
     docker:

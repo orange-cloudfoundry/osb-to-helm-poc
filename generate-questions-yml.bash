@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ "$#" -lt 2 ]];then
+if [[ "$#" -ne 2 ]];then
   echo "Usage: `basename "$0"` SERVICE_DEFINITION_FILE DEST_CHART_DIR"
   exit 1
 fi
