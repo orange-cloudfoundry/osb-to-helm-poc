@@ -34,11 +34,11 @@ jobs:
             ./install-build-prereqs.bash
             # Just checking for now that generation does not fail.
             # Packaging is likely to be different in the future
-            ./generate-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-values-yaml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-readme.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-chart_yml.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-app-readme.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-questions-yml.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-values-yaml.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
             ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
             ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
             ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/
@@ -55,10 +55,10 @@ jobs:
           name: Generate from OSB catalog
           command: |
             #Just checking for now that rendering does not fail
-            ./generate-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-chart_yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-app-readme.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
-            ./generate-questions-yml.bash ./sample-p-mysql-catalog.json ./generated-charts/p-mysql/
+            ./generate-readme.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-chart_yml.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-app-readme.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
+            ./generate-questions-yml.bash ./sample-p-mysql-service-definition.json ./generated-charts/p-mysql/
             ./generate-helpers-tpl.bash p-mysql ./generated-charts/p-mysql/
             ./generate-notes-txt.bash p-mysql ./generated-charts/p-mysql/
             ./generate-K8S-templates.bash p-mysql ./generated-charts/p-mysql/
