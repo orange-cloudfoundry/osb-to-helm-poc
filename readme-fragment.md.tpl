@@ -44,7 +44,9 @@ Name |  Description | Cost | Additional information | Latest version
         {{- end}}
     {{- end}}
 {{- end}} |
-{{- if .maintenance_info -}}
-    v{{ .maintenance_info.version}}</br>{{ .maintenance_info.description}}
-{{- end}}
+    {{- if coll.Has . "maintenance_info" -}}
+        {{- if .maintenance_info -}}
+            v{{ .maintenance_info.version}}</br>{{ .maintenance_info.description}}
+        {{- end}}
+    {{- end}}
 {{- end}}
