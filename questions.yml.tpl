@@ -4,7 +4,7 @@
 categories:
 {{- range $servicedefinition.tags }}
   - {{.}}
-{{ end -}}
+{{- end }}
 labels:
 #  io.rancher.certified: partner
   io.cattle.role: project # options are cluster/project

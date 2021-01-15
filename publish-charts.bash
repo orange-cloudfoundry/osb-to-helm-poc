@@ -22,7 +22,7 @@ function install_prereq_plugin {
 }
 install_prereq_plugin
 
-CHARTS_DIRS=$(find ${CHARTS_DIR} -type d --maxdepth 1 -mindepth 1 )
+CHARTS_DIRS=$(find ${CHARTS_DIR} -type d -maxdepth 1 -mindepth 1 )
 
 for CHART_DIR in ${CHARTS_DIRS}; do
   (
