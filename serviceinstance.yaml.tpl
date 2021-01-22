@@ -9,7 +9,7 @@ spec:
 
   #Let svcat reference service class and service plans from external names (i.e. OSB names)
   #See https://github.com/kubernetes-sigs/service-catalog/blob/a204c0d26c60b42121aa608c39a179680e499d2a/contrib/examples/walkthrough/mini-instance.yaml#L1-L11
-  clusterServiceClassExternalName: {{ .Values.serviceClassName }}
+  clusterServiceClassExternalName: "p-mysql"
   clusterServicePlanExternalName: {{ .Values.servicePlanName }}
 
 

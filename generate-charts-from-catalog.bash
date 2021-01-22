@@ -37,9 +37,9 @@ for SERVICE_NAME in $SERVICE_NAMES; do
   ./generate-questions-yml.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
   ./generate-values-yaml.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
   ./generate-values.schema.json.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
-  ./generate-helpers-tpl.bash p-mysql ${DEST_CHART_DIR}
-  ./generate-notes-txt.bash p-mysql ${DEST_CHART_DIR}
-  ./generate-K8S-templates.bash p-mysql ${DEST_CHART_DIR}
+  ./generate-helpers-tpl.bash ${SERVICE_NAME} ${DEST_CHART_DIR}
+  ./generate-notes-txt.bash ${SERVICE_NAME} ${DEST_CHART_DIR}
+  ./generate-K8S-templates.bash ${SERVICE_NAME} ${DEST_CHART_DIR}
 
   export SERVICE_INDEX=$((SERVICE_INDEX+1))
 done;

@@ -5,5 +5,4 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-serviceClassName: "{{ $servicedefinition.name }}"
 servicePlanName: "{{ $defaultPlanName }}"
