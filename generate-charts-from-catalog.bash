@@ -27,15 +27,16 @@ for SERVICE_NAME in $SERVICE_NAMES; do
   DEST_CHART_DIR="${DEST_CHARTS_DIR}/$SERVICE_NAME/"
   mkdir -p ${DEST_CHART_DIR}/templates
 
-  CATALOG_FILE="${DEST_CHARTS_DIR}/catalog-${SERVICE_NAME}.json"
-  ./gomplate -i "${EXTRACT_CATALOG_TEMPLATE}" -d servicecatalog=${OSB_CATALOG_FILE} > ${CATALOG_FILE}
-  ls -al ${CATALOG_FILE}
+  SERVICE_DEFINITION_FILE="${DEST_CHARTS_DIR}/catalog-${SERVICE_NAME}.json"
+  ./gomplate -i "${EXTRACT_CATALOG_TEMPLATE}" -d servicecatalog=${OSB_CATALOG_FILE} > ${SERVICE_DEFINITION_FILE}
+  ls -al ${SERVICE_DEFINITION_FILE}
 
-  ./generate-readme.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
-  ./generate-chart_yml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
-  ./generate-app-readme.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
-  ./generate-questions-yml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
-  ./generate-values-yaml.bash ${CATALOG_FILE} ${DEST_CHART_DIR}
+  ./generate-readme.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
+  ./generate-chart_yml.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
+  ./generate-app-readme.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
+  ./generate-questions-yml.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
+  ./generate-values-yaml.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
+  ./generate-values.schema.json.bash ${SERVICE_DEFINITION_FILE} ${DEST_CHART_DIR}
   ./generate-helpers-tpl.bash p-mysql ${DEST_CHART_DIR}
   ./generate-notes-txt.bash p-mysql ${DEST_CHART_DIR}
   ./generate-K8S-templates.bash p-mysql ${DEST_CHART_DIR}
